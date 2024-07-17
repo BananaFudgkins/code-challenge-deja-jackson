@@ -6,6 +6,12 @@
 # https://pythonspeed.com/articles/base-image-python-docker-images/
 FROM python:3.8
 
+RUN apt-get update && \
+  apt-get install -y curl && \
+  curl -L https://deb.nodesource.com/setup_14.x | bash - && \
+  apt-get install -y nodejs && \
+  apt-get install -y npm
+
 # Add the NodeSource PPA
 # (see: https://github.com/nodesource/distributions/blob/master/README.md)
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
